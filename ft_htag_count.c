@@ -6,7 +6,7 @@
 /*   By: cgaspart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 12:06:33 by cgaspart          #+#    #+#             */
-/*   Updated: 2017/11/27 15:21:08 by cgaspart         ###   ########.fr       */
+/*   Updated: 2017/12/07 16:27:44 by cgaspart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static int	ft_count(char *fcontent, int i)
 	{
 		if (fcontent[i + j] == '#')
 			count++;
+		if (fcontent[i + j] == '\0')
+			return (0);
 		j++;
 	}
 	if (count == 4)
@@ -34,14 +36,17 @@ static int	ft_count(char *fcontent, int i)
 int			ft_htag_count(char *fcontent)
 {
 	int i;
-	int count;
 
 	i = 0;
-	count = 0;
 	while (fcontent[i] != '\0')
 	{
 		if (ft_count(fcontent, i))
-			i = i + 21;
+		{
+			i = i + 20;
+			if (!fcontent[i])
+				return (1);
+			i++;
+		}
 		else
 			return (0);
 	}

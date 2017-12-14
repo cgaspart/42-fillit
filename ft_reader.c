@@ -6,7 +6,7 @@
 /*   By: cgaspart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 11:08:53 by cgaspart          #+#    #+#             */
-/*   Updated: 2017/11/27 11:52:19 by cgaspart         ###   ########.fr       */
+/*   Updated: 2017/12/06 16:22:11 by pfournel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_reader(char *fname)
 		buff[ret] = '\0';
 		close(fd);
 	}
-	if (fd == -1)
-		return (0);
+	else
+		return (NULL);
 	return (ft_strdup(buff));
 }
